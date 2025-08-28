@@ -16,7 +16,6 @@ function getCourseRecommendations() {
       'web-dev': [
         {
           name: 'The Complete Web Developer Bootcamp',
-          platform: 'Udemy',
           match: 97,
           desc: 'Kursus lengkap untuk menjadi Web Developer dari dasar hingga mahir. Mencakup HTML, CSS, JavaScript, React, Node.js, dan lebih banyak lagi.',
           link: '#',
@@ -25,7 +24,6 @@ function getCourseRecommendations() {
         },
         {
           name: 'Front-End Web Development with React',
-          platform: 'Coursera',
           match: 92,
           desc: 'Pelajari pengembangan frontend modern dengan React, Redux, dan ecosystem JavaScript terbaru.',
           link: '#',
@@ -36,7 +34,6 @@ function getCourseRecommendations() {
       'data-science': [
         {
           name: 'Data Science Specialization',
-          platform: 'Coursera',
           match: 95,
           desc: 'Program 10 kursus yang mencakup R, Python, statistical analysis, machine learning, dan pembuatan produk data.',
           link: '#',
@@ -45,7 +42,6 @@ function getCourseRecommendations() {
         },
         {
           name: 'Python for Data Science and Machine Learning',
-          platform: 'Udemy',
           match: 96,
           desc: 'Pelajari penggunaan Python untuk analisis data, visualisasi, machine learning, dan deep learning.',
           link: '#',
@@ -56,7 +52,6 @@ function getCourseRecommendations() {
       'ai-ml': [
         {
           name: 'Machine Learning A-Z',
-          platform: 'Udemy',
           match: 96,
           desc: 'Kursus komprehensif tentang Machine Learning dengan Python dan R. Cocok untuk pemula hingga menengah.',
           link: '#',
@@ -69,7 +64,6 @@ function getCourseRecommendations() {
       'digital-marketing': [
         {
           name: 'Digital Marketing Specialization',
-          platform: 'Coursera',
           match: 94,
           desc: 'Pelajari strategi digital marketing termasuk SEO, social media, content marketing, dan analytics.',
           link: '#',
@@ -80,7 +74,6 @@ function getCourseRecommendations() {
       'project-management': [
         {
           name: 'Google Project Management',
-          platform: 'Coursera',
           match: 93,
           desc: 'Pelajari metodologi project management yang digunakan oleh Google dan perusahaan teknologi lainnya.',
           link: '#',
@@ -93,7 +86,6 @@ function getCourseRecommendations() {
       'ui-ux': [
         {
           name: 'UI/UX Design Specialization',
-          platform: 'Coursera',
           match: 95,
           desc: 'Pelajari proses desain dari research hingga prototyping untuk membuat produk digital yang user-friendly.',
           link: '#',
@@ -104,7 +96,6 @@ function getCourseRecommendations() {
       'content-creation': [
         {
           name: 'Content Strategy for Professionals',
-          platform: 'Coursera',
           match: 92,
           desc: 'Kursus strategi konten untuk profesional yang ingin mengembangkan konten yang engaging dan efektif.',
           link: '#',
@@ -125,7 +116,6 @@ function getCourseRecommendations() {
     recommendations = [
       {
         name: 'Career Success Specialization',
-        platform: 'Coursera',
         match: 85,
         desc: 'Kembangkan skill profesional yang dibutuhkan untuk sukses di dunia kerja.',
         link: '#',
@@ -150,7 +140,7 @@ function getCourseRecommendations() {
               <div class="course-title">${course.name}</div>
               <div class="match-score">${course.match}% Match</div>
             </div>
-            <div class="course-platform">Platform: ${course.platform} | Level: ${course.level} | Durasi: ${course.duration}</div>
+            <div class="course-platform"> Level: ${course.level} | Durasi: ${course.duration}</div>
             <p class="course-desc">${course.desc}</p>
             <a href="${course.link}" class="course-link"><i class="fas fa-external-link-alt"></i> Lihat Course</a>
           </div>
@@ -197,22 +187,24 @@ window.addEventListener('scroll', () => {
 // Intersection Observer for animations (Continuous fade-in)
 const revealElements = document.querySelectorAll('.reveal-element');
 
-const observer = new IntersectionObserver((entries, observer) => {
+const observer = new IntersectionObserver(
+  (entries, observer) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-        }
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      }
     });
-}, {
+  },
+  {
     rootMargin: '0px',
-    threshold: 0.2
-});
+    threshold: 0.2,
+  }
+);
 
 revealElements.forEach(el => observer.observe(el));
 
-
 // Parallax effect for floating elements
-document.addEventListener('mousemove', (e) => {
+document.addEventListener('mousemove', e => {
   const floatingElements = document.querySelectorAll('.floating-element');
   const x = (e.clientX / window.innerWidth - 0.5) * 2;
   const y = (e.clientY / window.innerHeight - 0.5) * 2;
@@ -220,7 +212,7 @@ document.addEventListener('mousemove', (e) => {
   floatingElements.forEach(el => {
     const speed = parseFloat(el.getAttribute('data-speed'));
     // Apply a subtle parallax based on mouse movement
-    el.style.transform = `translate(${x * 15 * speed}px, ${y * 15 * speed}px) rotate(${el.classList.contains('floating-robot-hero') ? 15 : (el.classList.contains('floating-businessman-about') ? -10 : 0)}deg)`;
+    el.style.transform = `translate(${x * 15 * speed}px, ${y * 15 * speed}px) rotate(${el.classList.contains('floating-robot-hero') ? 15 : el.classList.contains('floating-businessman-about') ? -10 : 0}deg)`;
   });
 });
 
