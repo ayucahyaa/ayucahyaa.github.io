@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python for Data Science - Pembelajaran Interaktif</title>
+    <link rel="stylesheet" href="style/style2.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <h1>Python untuk Data Science</h1>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="intro">
+            <h2>Mengapa Python Penting dalam Data Science?</h2>
+            <p><strong>Python</strong> adalah bahasa pemrograman yang sangat populer di kalangan ilmuwan data karena sintaksnya yang sederhana dan ekosistem library yang kuat. Dengan Python, Anda dapat melakukan berbagai tugas, mulai dari manipulasi data, visualisasi, hingga pembangunan model <i>machine learning</i> yang kompleks.</p>
+            <div class="image-container">
+                <img src="assets/python.gif" alt="Python for Data Science illustration" class="responsive-image">
+            </div>
+        </section>
+
+        <section class="libraries">
+            <h2>Library Esensial</h2>
+            <p>Berikut adalah beberapa library Python yang harus Anda kuasai untuk memulai perjalanan di bidang Data Science.</p>
+            <ul>
+                <li><strong>NumPy:</strong> Untuk komputasi numerik dan operasi array yang efisien.</li>
+                <li><strong>Pandas:</strong> Untuk analisis dan manipulasi data. Sering disebut sebagai "Excel" versi Python.</li>
+                <li><strong>Matplotlib & Seaborn:</strong> Untuk visualisasi data yang menarik.</li>
+                <li><strong>Scikit-learn:</strong> Library utama untuk algoritma <i>machine learning</i>.</li>
+                <li><strong>TensorFlow & PyTorch:</strong> Digunakan untuk proyek <i>deep learning</i> yang lebih canggih.</li>
+            </ul>
+        </section>
+
+        <section class="code-example">
+            <h2>Contoh Kode: Analisis Data Sederhana dengan Pandas</h2>
+            <div class="code-container">
+                <pre><code class="language-python">
+import pandas as pd
+import numpy as np
+
+# Membuat DataFrame sederhana
+data = {
+    'Nama': ['Andi', 'Budi', 'Citra', 'Dina'],
+    'Usia': [25, 30, 22, 28],
+    'Kota': ['Jakarta', 'Bandung', 'Jakarta', 'Surabaya']
+}
+df = pd.DataFrame(data)
+
+print("DataFrame Awal:")
+print(df)
+
+# Menghitung usia rata-rata
+usia_rata_rata = df['Usia'].mean()
+print(f"\nUsia rata-rata: {usia_rata_rata:.2f}")
+
+# Memfilter data
+jakarta_residents = df[df['Kota'] == 'Jakarta']
+print("\nDataFrame Penduduk Jakarta:")
+print(jakarta_residents)
+                </code></pre>
+                <button class="copy-btn">Salin Kode</button>
+            </div>
+        </section>
+        
+        <section class="quiz">
+            <h2>Tes Pemahaman Singkat</h2>
+            <div class="quiz-container">
+                <p>Library Python apa yang paling sering digunakan untuk visualisasi data?</p>
+                <form id="quiz-form">
+                    <input type="radio" id="numpy-option" name="quiz-answer" value="numpy">
+                    <label for="numpy-option">NumPy</label><br>
+                    <input type="radio" id="pandas-option" name="quiz-answer" value="pandas">
+                    <label for="pandas-option">Pandas</label><br>
+                    <input type="radio" id="matplotlib-option" name="quiz-answer" value="matplotlib">
+                    <label for="matplotlib-option">Matplotlib</label><br>
+                    <input type="radio" id="sklearn-option" name="quiz-answer" value="sklearn">
+                    <label for="sklearn-option">Scikit-learn</label>
+                    <button type="submit" class="submit-btn">Cek Jawaban</button>
+                </form>
+                <p id="quiz-result"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Pembelajaran Python untuk Data Science.</p>
+        </div>
+    </footer>
+
+    <script src="js/script2.js"></script>
+</body>
+</html>

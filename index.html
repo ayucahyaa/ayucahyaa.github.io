@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CoursePath - AI-Powered Course Recommendation System untuk Optimalisasi Pengembangan Skill</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <div class="logo">CoursePath</div>
+
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <ul class="nav-links">
+          <li>
+            <a href="#home"><i class="fas fa-home"></i> Beranda</a>
+          </li>
+          <li>
+            <a href="#about"><i class="fas fa-info-circle"></i> Tentang</a>
+          </li>
+          <li>
+            <a href="#tools"><i class="fas fa-tools"></i> Course Finder</a>
+          </li>
+          <li>
+            <a href="#courses"><i class="fas fa-book"></i> Rekomendasi</a>
+          </li>
+          <li>
+            <a href="#how-it-works"><i class="fas fa-question-circle"></i> Cara Kerja</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="reveal-element">CoursePath</h1>
+          <p class="tagline reveal-element">Jalan Menuju Pengembangan Skill Terbaik</p>
+          <p class="reveal-element">Temukan rekomendasi course tambahan terbaik untuk memperdalam minat dan bakat berdasarkan bidang yang Anda minati</p>
+          <a href="#tools" class="cta-button reveal-element"><i class="fas fa-search"></i> Temukan Course</a>
+        </div>
+      </div>
+      <div class="floating-element floating-robot-hero" data-speed="1.2"></div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container">
+        <h2 class="section-title reveal-element">Tentang CoursePath</h2>
+        <div class="about-content">
+          <div class="about-text reveal-element">
+            <h2>Mengapa CoursePath?</h2>
+            <p>CoursePath adalah platform inovatif yang membantumu menemukan course tambahan di luar kampus yang selaras dengan bidang yang kamu minati dan jalur karir yang kamu impikan.</p>
+            <p>Dengan teknologi AI, kami menganalisis minat dan tujuan karirmu untuk merekomendasikan course-course terbaik dari platform belajar online.</p>
+            <p>Dengan CoursePath, Anda dapat mengembangkan skill yang dibutuhkan industri tanpa meninggalkan kuliah, membangun portofolio yang kuat, dan mempersiapkan karir impian Anda sejak dini.</p>
+          </div>
+          <div class="about-image reveal-element">
+            <img src="assets/img2.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tools" id="tools">
+      <div class="container">
+        <h2 class="section-title reveal-element">AI Course Finder</h2>
+        <div class="floating-element floating-icon-tools" data-speed="0.8"></div>
+
+        <div class="tool-container reveal-element">
+          <h3><i class="fas fa-search"></i> Temukan Course Tambahan Terbaik</h3>
+          <p>Dapatkan rekomendasi course di luar kampus yang sesuai dengan program studi dan tujuan karir Anda</p>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1.5rem">
+            <div class="form-group">
+              <label><i class="fas fa-globe"></i> Bidang Minat:</label>
+              <select id="major">
+                <option value="">Pilih Bidang Minat</option>
+                <option value="teknologi">Teknologi & Pemrograman</option>
+                <option value="bisnis">Bisnis & Kewirausahaan</option>
+                <option value="seni">Seni & Desain Kreatif</option>
+                <option value="komunikasi">Komunikasi & Media</option>
+                <option value="bahasa">Bahasa & Budaya</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <div class="floating-element floating-businessman-about" data-speed="0.8"></div>
+              <label><i class="fas fa-briefcase"></i> Fokus Karir:</label>
+              <select id="career">
+                <option value="">Pilih Fokus Karir</option>
+                <option value="web-dev">Web Development</option>
+                <option value="mobile-dev">Mobile Development</option>
+                <option value="data-science">Data Science</option>
+                <option value="ai-ml">AI & Machine Learning</option>
+                <option value="ui-ux">UI/UX Design</option>
+                <option value="digital-marketing">Digital Marketing</option>
+                <option value="project-management">Project Management</option>
+                <option value="content-creation">Content Creation</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label><i class="fas fa-signal"></i> Level Pembelajaran:</label>
+              <select id="level">
+                <option value="">Pilih Level</option>
+                <option value="pemula">Pemula</option>
+                <option value="menengah">Menengah</option>
+                <option value="mahir">Mahir</option>
+                <option value="expert">Expert</option>
+              </select>
+            </div>
+          </div>
+
+          <button class="recommend-btn" onclick="getCourseRecommendations()"><i class="fas fa-robot"></i> Dapatkan Rekomendasi Course</button>
+
+          <div class="results" id="recommendations">
+            <h4><i class="fas fa-clipboard-list"></i> Rekomendasi Course Tambahan:</h4>
+            <div id="course-list"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="courses" id="courses">
+      <div class="container">
+        <h2 class="section-title reveal-element">Rekomendasi Course Populer</h2>
+        <div class="courses-grid">
+          <div class="course-card reveal-element">
+            <h3>Python for Data Science</h3>
+            <p>Pelajari Python dari dasar hingga mahir untuk analisis data dan machine learning.</p>
+            <div class="course-meta">
+              <span></span>
+              <span><i class="fas fa-star"></i> 4.8/5.0</span>
+            </div>
+            <a href="python.html" class="course-link">Lihat Detail <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="course-card reveal-element">
+            <h3>UI/UX Design Fundamentals</h3>
+            <p>Kuasai prinsip-prinsip desain antarmuka dan pengalaman pengguna.</p>
+            <div class="course-meta">
+              <span> </span>
+              <span><i class="fas fa-star"></i> 4.7/5.0</span>
+            </div>
+            <a href="fundamentals.html" class="course-link">Lihat Detail <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="course-card reveal-element">
+            <h3>Digital Marketing Strategy</h3>
+            <p>Pelajari strategi pemasaran digital untuk bisnis modern.</p>
+            <div class="course-meta">
+              <span></span>
+              <span><i class="fas fa-star"></i> 4.6/5.0</span>
+            </div>
+            <a href="marketing.html" class="course-link">Lihat Detail <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-it-works" id="how-it-works">
+      <div class="container">
+        <h2 class="section-title reveal-element">Bagaimana CoursePath Bekerja?</h2>
+        <div class="steps">
+          <div class="step reveal-element">
+            <div class="step-number">1</div>
+            <h3>Pilih Bidang</h3>
+            <p>Pilih bidang dan fokus karir yang Anda minati</p>
+          </div>
+          <div class="step reveal-element">
+            <div class="step-number">2</div>
+            <h3>Analisis AI</h3>
+            <p>AI kami menganalisis kurikulum dan kebutuhan industri</p>
+          </div>
+          <div class="step reveal-element">
+            <div class="step-number">3</div>
+            <h3>Dapatkan Rekomendasi</h3>
+            <p>Terima rekomendasi course yang sesuai dengan minat dan bakat Anda</p>
+          </div>
+          <div class="step reveal-element">
+            <div class="step-number">4</div>
+            <h3>Develop Your Skills</h3>
+            <p>Ikuti course dan kembangkan skill yang dibutuhkan industri</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column reveal-element">
+            <h3>CoursePath</h3>
+            <p>Platform rekomendasi course tambahan untuk membantu Anda mengembangkan keterampilan di berbagai bidang minat.</p>
+          </div>
+
+          <div class="footer-column reveal-element">
+            <h3>Tautan Cepat</h3>
+            <a href="#home">Beranda</a>
+            <a href="#about">Tentang</a>
+            <a href="#tools">Course Finder</a>
+            <a href="#courses">Rekomendasi</a>
+            <a href="#how-it-works">Cara Kerja</a>
+          </div>
+
+          <div class="footer-column reveal-element">
+            <h3>Kontak Kami</h3>
+            <p><i class="fas fa-envelope"></i> info@coursepath</p>
+            <p><i class="fas fa-phone"></i> +62 21 1234 5678</p>
+            <p><i class="fas fa-map-marker-alt"></i> Medan, Indonesia</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom reveal-element">
+          <p>&copy; 2025 CoursePath. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
